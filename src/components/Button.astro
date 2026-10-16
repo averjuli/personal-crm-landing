@@ -1,0 +1,49 @@
+---
+import Icon from "./Icon.astro";
+import { appUrl, ctaLabel } from "../data/content";
+
+interface Props {
+  // primary: lime, full width on mobile; outline: small header button
+  variant?: "primary" | "outline";
+  // On the dark block the primary button has no border
+  onDark?: boolean;
+  // Analytics label
+  cta: "header" | "hero" | "final";
+  class?: string;
+}
+
+const { variant = "primary", onDark = false, cta, class: className } = Astro.props;
+---
+
+{
+  variant === "primary" ? (
+    <a
+      href={appUrl}
+      data-cta={cta}
+      class:list={[
+        "flex h-14.5 items-center justify-center gap-2.5 rounded-18 bg-accent text-16 font-bold text-ink",
+        "lg:h-16 lg:gap-3 lg:self-start lg:rounded-20 lg:px-8 lg:text-18",
+        "focus-visible:outline-2 focus-visible:outline-offset-2",
+        onDark
+          ? "focus-visible:outline-accent"
+          : "border-[1.5px] border-ink focus-visible:outline-ink",
+        className,
+      ]}
+    >
+      {ctaLabel}
+      <Icon name="arrow-right" strokeWidth={2.2} class="size-4.5 lg:size-5" />
+    </a>
+  ) : (
+    <a
+      href={appUrl}
+      data-cta={cta}
+      class:list={[
+        "flex h-12 items-center rounded-14 border-[1.5px] border-ink px-5.5 text-15 font-bold",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
+        className,
+      ]}
+    >
+      {ctaLabel}
+    </a>
+  )
+}

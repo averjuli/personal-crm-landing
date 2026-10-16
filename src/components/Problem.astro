@@ -1,0 +1,42 @@
+---
+import Chip from "./Chip.astro";
+import { problem } from "../data/content";
+---
+
+<section class="border-t border-line">
+  <div
+    class="mx-auto flex max-w-page flex-col gap-5 px-6 py-14 lg:flex-row lg:items-center lg:gap-16 lg:px-10 lg:py-28"
+  >
+    <div class="flex flex-col gap-5 lg:min-w-0 lg:grow lg:basis-120 lg:gap-6">
+      <Chip>{problem.chip}</Chip>
+      <h2 class="font-display text-h2-sm font-medium lg:text-h2-lg">{problem.title}</h2>
+      <p class="text-lead text-text-2 lg:text-lead-lg">{problem.text}</p>
+    </div>
+
+    <div
+      class="mt-2 flex flex-col gap-3 rounded-24 bg-surface-muted p-4.5 lg:mt-0 lg:min-w-0 lg:max-w-115 lg:grow lg:basis-95 lg:gap-4 lg:rounded-28 lg:p-6"
+      aria-hidden="true"
+    >
+      <div class="flex items-center gap-3 rounded-16 bg-surface px-3.5 py-3 lg:gap-3.5 lg:rounded-18 lg:px-4.5 lg:py-4">
+        <div
+          class="flex size-10 shrink-0 items-center justify-center rounded-full bg-avatar-muted text-16 font-bold text-text-3 lg:size-12 lg:text-18"
+        >
+          {problem.contact.avatar}
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-15 font-semibold lg:text-17">{problem.contact.name}</span>
+          <span class="text-13 text-text-3 lg:text-14">{problem.contact.phone}</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 lg:gap-2.5">
+        {
+          problem.sources.map((source) => (
+            <span class="rounded-full border border-dashed border-line-dashed bg-surface px-3 py-2 text-13 text-text-2 lg:px-4 lg:py-2.5 lg:text-15">
+              {source}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

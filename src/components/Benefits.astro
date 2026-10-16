@@ -1,0 +1,21 @@
+---
+import Chip from "./Chip.astro";
+import Icon from "./Icon.astro";
+import { benefits } from "../data/content";
+---
+
+<section class="mx-auto flex max-w-page flex-col gap-5 px-6 py-14 lg:gap-8 lg:px-10 lg:py-28">
+  <Chip as="h2">{benefits.chip}</Chip>
+  <ul class="grid grid-cols-1 gap-2.5 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
+    {
+      benefits.items.map((item) => (
+        <li class="flex min-w-0 flex-col gap-3.5 rounded-22 border border-line bg-surface p-5 lg:gap-10 lg:rounded-24 lg:p-7">
+          <span class="flex size-10 items-center justify-center rounded-12 bg-accent text-ink lg:size-12 lg:rounded-14">
+            <Icon name={item.icon} class="size-5 lg:size-5.5" />
+          </span>
+          <span class="text-benefit font-bold lg:text-benefit-lg">{item.text}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

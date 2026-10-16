@@ -1,0 +1,21 @@
+---
+// Block label pill. Rendered as <span> by default; Benefits uses it as its <h2>
+interface Props {
+  variant?: "outline" | "accent";
+  as?: "span" | "h2";
+  class?: string;
+}
+
+const { variant = "outline", as: Tag = "span", class: className } = Astro.props;
+---
+
+<Tag
+  class:list={[
+    "self-start rounded-full border-[1.5px] border-ink px-3 py-1.5 text-13 font-bold",
+    "lg:px-3.5 lg:py-2 lg:text-14",
+    variant === "accent" && "bg-accent",
+    className,
+  ]}
+>
+  <slot />
+</Tag>

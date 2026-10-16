@@ -1,0 +1,76 @@
+---
+import Chip from "./Chip.astro";
+import { solution } from "../data/content";
+
+const { card } = solution;
+const lastStep = solution.steps.length - 1;
+---
+
+<section class="border-y border-line bg-surface">
+  <div class="mx-auto flex max-w-page flex-col gap-5 px-6 py-14 lg:gap-14 lg:px-10 lg:py-28">
+    <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-16">
+      <div class="flex flex-col gap-5 lg:min-w-0 lg:grow lg:basis-120 lg:gap-6">
+        <Chip variant="accent">{solution.chip}</Chip>
+        <h2 class="font-display text-h2 font-medium lg:text-h2-lg">{solution.title}</h2>
+        <p class="text-lead text-text-2 lg:text-lead-lg">{solution.text}</p>
+      </div>
+
+      <!-- Contact card illustration -->
+      <div
+        class="flex flex-col gap-3.5 rounded-24 border-[1.5px] border-ink bg-bg p-4.5 lg:min-w-0 lg:max-w-115 lg:grow lg:basis-95 lg:gap-4 lg:rounded-28 lg:p-6"
+        aria-hidden="true"
+      >
+        <div class="flex items-center gap-3 lg:gap-3.5">
+          <div
+            class="flex size-12 shrink-0 items-center justify-center rounded-full border-[1.5px] border-ink bg-accent font-display text-15 font-semibold lg:size-14 lg:text-17"
+          >
+            {card.initials}
+          </div>
+          <div class="flex flex-col gap-0.5">
+            <span class="text-17 font-bold lg:text-19">{card.name}</span>
+            <span class="text-13 text-text-2 lg:text-14">{card.origin}</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          {
+            [card.phone, card.email].map((row) => (
+              <div class="flex justify-between gap-3 rounded-14 bg-surface px-3.5 py-3 text-14 lg:px-4 lg:py-3.5 lg:text-15">
+                <span class="text-text-3">{row.label}</span>
+                <span class="font-semibold">{row.value}</span>
+              </div>
+            ))
+          }
+          <div class="flex flex-col gap-1 rounded-14 bg-surface px-3.5 py-3 text-14 lg:px-4 lg:py-3.5 lg:text-15">
+            <span class="text-text-3">{card.notes.label}</span>
+            <span class="leading-note font-semibold">{card.notes.value}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="mt-2 flex flex-col gap-2.5 lg:mt-0 lg:flex-row lg:gap-4">
+      {
+        solution.steps.map((step, i) => (
+          <li class="flex items-center gap-3.5 lg:min-w-0 lg:grow lg:basis-65 lg:flex-col lg:items-start lg:gap-4.5 lg:rounded-22 lg:border lg:border-line lg:bg-bg lg:p-6">
+            <span
+              class:list={[
+                "flex size-10 shrink-0 items-center justify-center rounded-full border-[1.5px] border-ink font-display text-14 font-semibold lg:size-11 lg:text-15",
+                i === lastStep && "bg-accent",
+              ]}
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <span class="text-step font-semibold lg:text-step-lg">{step}</span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p
+      class="mt-3 rounded-24 bg-ink p-5.5 font-display text-plaque font-medium text-on-dark lg:mt-0 lg:rounded-28 lg:px-12 lg:py-10 lg:text-plaque-lg"
+    >
+      {solution.plaque.before}<span class="text-accent">{solution.plaque.marked}</span>
+    </p>
+  </div>
+</section>

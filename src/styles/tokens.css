@@ -1,0 +1,114 @@
+/*
+ * Design tokens: the only place for colors, fonts, type scale, spacing and radii.
+ * Values come from desing/docs/design-spec.md and desing/reference/*.html.
+ * Default Tailwind palettes are reset so markup can use tokens only.
+ */
+@theme {
+  /* Colors */
+  --color-*: initial;
+  --color-bg: #fafaf7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f1ec;
+  --color-avatar-muted: #e4e4de;
+  --color-ink: #111111;
+  --color-text-2: #55554f;
+  --color-text-3: #77776f;
+  --color-line: #ecece6;
+  --color-line-dashed: #b9b9b1;
+  --color-accent: #d4f25a;
+  --color-on-dark: #ffffff;
+  --color-on-dark-2: #c9c9c2;
+  --color-on-dark-line: #2a2a28;
+
+  /* Font families */
+  --font-display: "Unbounded Variable", "Unbounded", sans-serif;
+  --font-sans: "Manrope Variable", "Manrope", sans-serif;
+
+  /* Type scale. Suffix -lg = desktop size (from the lg breakpoint) */
+  --text-*: initial;
+
+  /* Display text, Unbounded 500 */
+  --text-h1: 2rem;
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1-lg: 4.25rem;
+  --text-h1-lg--line-height: 1.06;
+  --text-h1-lg--letter-spacing: -0.04em;
+
+  --text-h2: 1.625rem;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2-sm: 1.5rem;
+  --text-h2-sm--line-height: 1.22;
+  --text-h2-sm--letter-spacing: -0.03em;
+  --text-h2-lg: 2.75rem;
+  --text-h2-lg--line-height: 1.15;
+  --text-h2-lg--letter-spacing: -0.035em;
+
+  --text-cta-lg: 3.5rem;
+  --text-cta-lg--line-height: 1.1;
+  --text-cta-lg--letter-spacing: -0.04em;
+
+  --text-plaque: 1.1875rem;
+  --text-plaque--line-height: 1.3;
+  --text-plaque--letter-spacing: -0.02em;
+  --text-plaque-lg: 2rem;
+  --text-plaque-lg--line-height: 1.25;
+  --text-plaque-lg--letter-spacing: -0.03em;
+
+  /* Body text, Manrope */
+  --text-lead: 1rem;
+  --text-lead--line-height: 1.55;
+  --text-lead-lg: 1.25rem;
+  --text-lead-lg--line-height: 1.55;
+
+  --text-benefit: 1.125rem;
+  --text-benefit--line-height: 1.35;
+  --text-benefit-lg: 1.25rem;
+  --text-benefit-lg--line-height: 1.35;
+
+  --text-step: 1rem;
+  --text-step--line-height: 1.4;
+  --text-step-lg: 1.125rem;
+  --text-step-lg--line-height: 1.4;
+
+  /* UI sizes in px, natural line height */
+  --text-12: 0.75rem;
+  --text-12--line-height: normal;
+  --text-13: 0.8125rem;
+  --text-13--line-height: normal;
+  --text-14: 0.875rem;
+  --text-14--line-height: normal;
+  --text-15: 0.9375rem;
+  --text-15--line-height: normal;
+  --text-16: 1rem;
+  --text-16--line-height: normal;
+  --text-17: 1.0625rem;
+  --text-17--line-height: normal;
+  --text-18: 1.125rem;
+  --text-18--line-height: normal;
+  --text-19: 1.1875rem;
+  --text-19--line-height: normal;
+
+  --leading-note: 1.4;
+
+  /* Spacing: utilities use multiples of this step (p-4 = 16px, gap-6.5 = 26px) */
+  --spacing: 0.25rem;
+
+  /* Page container */
+  --container-page: 75rem;
+
+  /* Radii in px */
+  --radius-*: initial;
+  --radius-10: 0.625rem;
+  --radius-12: 0.75rem;
+  --radius-14: 0.875rem;
+  --radius-16: 1rem;
+  --radius-18: 1.125rem;
+  --radius-20: 1.25rem;
+  --radius-22: 1.375rem;
+  --radius-24: 1.5rem;
+  --radius-28: 1.75rem;
+  --radius-32: 2rem;
+  --radius-40: 2.5rem;
+}

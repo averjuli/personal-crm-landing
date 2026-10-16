@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Problem from "../components/Problem.astro";
+import Solution from "../components/Solution.astro";
+import Benefits from "../components/Benefits.astro";
+import FinalCta from "../components/FinalCta.astro";
+import { meta } from "../data/content";
+---
+
+<Base title={meta.title} description={meta.description}>
+  <main>
+    <Hero />
+    <Problem />
+    <Solution />
+    <Benefits />
+    <FinalCta />
+  </main>
+</Base>

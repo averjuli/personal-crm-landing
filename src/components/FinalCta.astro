@@ -1,0 +1,22 @@
+---
+import Button from "./Button.astro";
+import Logo from "./Logo.astro";
+import { finalCta } from "../data/content";
+---
+
+<section class="mx-auto max-w-page px-3 pb-3 lg:px-10 lg:pb-10">
+  <div
+    class="flex flex-col gap-4.5 rounded-32 bg-ink px-6 pt-11 pb-8 text-on-dark lg:gap-6 lg:rounded-40 lg:px-16 lg:pt-20 lg:pb-10"
+  >
+    <h2 class="font-display text-h2 font-medium lg:max-w-205 lg:text-cta-lg">
+      {finalCta.title.before}<span class="rounded-10 bg-accent px-1.5 text-ink lg:rounded-14 lg:px-2.5"
+        >{finalCta.title.marked}</span
+      >
+    </h2>
+    <p class="text-lead text-on-dark-2 lg:text-lead-lg">{finalCta.text}</p>
+    <Button cta="final" onDark class="mt-2.5 lg:mt-3" />
+    <footer class="mt-auto pt-8 lg:mt-16 lg:border-t lg:border-on-dark-line lg:pt-7">
+      <Logo variant="footer" />
+    </footer>
+  </div>
+</section>

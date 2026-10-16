@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@fontsource-variable/unbounded";
+@import "@fontsource-variable/manrope";
+
+@theme {
+  /* Цвета */
+  --color-bg: #FAFAF7;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F1F1EC;
+  --color-avatar-muted: #E4E4DE;
+  --color-ink: #111111;
+  --color-text-2: #55554F;
+  --color-text-3: #77776F;
+  --color-line: #ECECE6;
+  --color-line-dashed: #B9B9B1;
+  --color-accent: #D4F25A;
+  --color-on-dark-2: #C9C9C2;
+  --color-on-dark-line: #2A2A28;
+
+  /* Шрифты */
+  --font-display: "Unbounded Variable", "Unbounded", sans-serif;
+  --font-sans: "Manrope Variable", "Manrope", sans-serif;
+
+  /* Контейнер */
+  --container-page: 1200px;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: inherit;
+  }
+}

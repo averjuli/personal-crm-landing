@@ -1,0 +1,59 @@
+---
+import Button from "./Button.astro";
+import Header from "./Header.astro";
+import Icon from "./Icon.astro";
+import { hero } from "../data/content";
+
+const lastField = hero.fields.length - 1;
+---
+
+<!-- Mobile: header, text, form (fills the rest of the screen), button. Desktop: text + button | form -->
+<section
+  class="mx-auto flex min-h-svh max-w-page flex-col gap-6.5 px-6 pt-5 pb-7 lg:block lg:min-h-0 lg:px-10 lg:pt-0 lg:pb-30"
+>
+  <Header />
+
+  <div class="flex flex-1 flex-col gap-6.5 lg:flex-row lg:items-center lg:gap-16 lg:pt-18">
+    <!-- On mobile this wrapper dissolves so the button can move below the form -->
+    <div class="contents lg:flex lg:min-w-0 lg:grow lg:basis-130 lg:flex-col lg:gap-7">
+      <div class="flex flex-col gap-4 lg:gap-7">
+        <h1 class="font-display text-h1 font-medium lg:text-h1-lg">
+          {hero.title.before}<span class="-ml-0.5 rounded-10 bg-accent px-1.5 lg:-ml-1 lg:rounded-16 lg:px-2.5"
+            >{hero.title.marked}</span
+          >{hero.title.after}
+        </h1>
+        <p class="text-lead text-text-2 lg:max-w-130 lg:text-lead-lg">{hero.lead}</p>
+      </div>
+      <Button cta="hero" class="order-1 lg:order-none" />
+    </div>
+
+    <div
+      class="flex flex-1 flex-col justify-center gap-2 lg:min-w-0 lg:max-w-115 lg:grow lg:basis-95 lg:gap-2.5"
+      aria-hidden="true"
+    >
+      {
+        hero.fields.map((field, i) => (
+          <div
+            class:list={[
+              "flex flex-col gap-0.5 rounded-18 bg-surface px-4.5 py-3.5 lg:gap-1 lg:rounded-20 lg:px-5.5 lg:py-4.5",
+              i === lastField ? "border-[1.5px] border-ink" : "border border-line",
+            ]}
+          >
+            <span class="text-12 text-text-3 lg:text-13">{field.label}</span>
+            <span class="text-16 font-semibold lg:text-18">
+              {field.value}{i === lastField && (
+                <span class="ml-0.5 inline-block h-4.25 w-[1.5px] bg-ink align-[-3px] lg:h-4.75" />
+              )}
+            </span>
+          </div>
+        ))
+      }
+      <div
+        class="flex items-center gap-2 self-end rounded-full bg-ink px-3.5 py-2 text-13 font-semibold text-on-dark lg:px-4 lg:py-2.5 lg:text-14"
+      >
+        <Icon name="check" size={14} strokeWidth={3} class="text-accent" />
+        {hero.saved}
+      </div>
+    </div>
+  </div>
+</section>
