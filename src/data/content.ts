@@ -2,7 +2,7 @@
 // Headings with a lime marker are split into before / marked / after.
 
 export const appUrl: string =
-  import.meta.env.PUBLIC_APP_URL || "https://app.vupsen.space.ru";
+  import.meta.env.PUBLIC_APP_URL || "https://app.vupsen.space";
 
 export const meta = {
   title: "Личная CRM",
